@@ -2,8 +2,8 @@ networks:
   kafka-network:
     driver: bridge
 
-#volumes:
-#  kafka-vol:
+volumes:
+    kafka-vol:
 
 services:
   kafka:
@@ -20,6 +20,8 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     networks:
       - kafka-network
+    volumes:
+      - kafka-vol:/bitnami/kafka/data
 
     depends_on:
       - zookeeper
